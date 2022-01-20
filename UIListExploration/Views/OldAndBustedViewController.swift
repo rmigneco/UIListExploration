@@ -15,7 +15,7 @@ final class OldAndBustedViewController: UIViewController {
     required init() {
         super.init(nibName: nil, bundle: nil)
         
-        self.tabBarItem = UITabBarItem(title: "Old", image: UIImage(systemName: "hand.thumbsdown"), tag: 0)
+        self.tabBarItem = UITabBarItem(title: "Old & Busted", image: UIImage(systemName: "hand.thumbsdown"), tag: 0)
         
         setupTableView()
     }

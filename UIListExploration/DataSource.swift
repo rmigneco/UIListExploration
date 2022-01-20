@@ -27,5 +27,5 @@ extension TransportationItem {
                       TransportationItem(name: "Bicycle", imageName: "bicycle", speed: "slow"),
                       TransportationItem(name: "Scooter", imageName: "scooter", speed: "average")]
     
-    static let sectioned = [Self.all, Self.all, Self.all, Self.all]
+    static let sectioned = [Self.all, Self.all, Self.all]
 }

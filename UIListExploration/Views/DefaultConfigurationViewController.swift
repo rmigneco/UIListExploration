@@ -30,6 +30,7 @@ final class CellStyleSectionedViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.reloadData()
+        view.backgroundColor = .white
     }
     
     func setupTableView() {
@@ -38,10 +39,12 @@ final class CellStyleSectionedViewController: UIViewController {
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-        tableView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        tableView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-        tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        tableView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        let guide = view.safeAreaLayoutGuide
+        tableView.widthAnchor.constraint(equalTo: guide.widthAnchor).isActive = true
+        tableView.heightAnchor.constraint(equalTo: guide.heightAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "transportationCell")
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "headerView")
@@ -66,11 +69,9 @@ extension CellStyleSectionedViewController: UITableViewDataSource {
         case 0:
             config = UIListContentConfiguration.cell()
         case 1:
-            config = UIListContentConfiguration.subtitleCell()
-        case 2:
             config = UIListContentConfiguration.valueCell()
-        case 3:
-            config = UIListContentConfiguration.accompaniedSidebarCell()
+        case 2:
+            config = UIListContentConfiguration.sidebarCell()
         default:
             config = UIListContentConfiguration.cell()
         }
@@ -99,11 +100,9 @@ extension CellStyleSectionedViewController: UITableViewDelegate {
         case 0:
             config.text = "Default"
         case 1:
-            config.text = "Subtitle Cell"
-        case 2:
             config.text = "Value Cell"
-        case 3:
-            config.text = "Accompanied Sidebar Cell"
+        case 2:
+            config.text = "Sidebar Cell"
         default:
             config.text = "Default"
         }
